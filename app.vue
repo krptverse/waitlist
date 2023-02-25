@@ -36,7 +36,7 @@ function subscribe() {
             Build a career in web3, crypto and blockchain. Make the most of opportunities in the <br> web3 space
             and stay
             up
-            to date with the latest news and trends..
+            to date with the latest news and trends.
           </p>
         </div>
 
