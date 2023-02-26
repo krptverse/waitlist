@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=development ./node_modules/.bin/netlify serve src",
-    "build": "netlify deploy --prod",
-    "try": "netlify deploy --prod"
+    "build": "NODE_ENV=production ./node_modules/.bin/netlify build src",
+    "try": "netlify deploy --prod",
+    "serve": "netlify deploy --prod"
+
   },
   "keywords": [],
   "author": "",
