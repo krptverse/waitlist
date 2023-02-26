@@ -1,6 +1,7 @@
+import mailchimp from '@mailchimp/mailchimp_marketing';
+
 const express = require("express");
 const serverless = require("serverless-http");
-const mailchimp = '@mailchimp/mailchimp_marketing';
 
 const app = express();
 const router = express.Router();
