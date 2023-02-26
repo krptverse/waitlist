@@ -1,7 +1,6 @@
-import mailchimp from '@mailchimp/mailchimp_marketing';
-
 const express = require("express");
 const serverless = require("serverless-http");
+const mailchimp = '@mailchimp/mailchimp_marketing';
 
 const app = express();
 const router = express.Router();
@@ -13,23 +12,23 @@ router.get("/", async (req, res) => {
         server: "us8",
     });
 
-    let message = "";
+    // let message = "";
 
-    try {
-        const response = await mailchimp.lists.addListMember('d12dde555f', {
-            email_address: 'fadilamanosi@gmail.com',
-            status: "subscribed",
-            merge_fields: {
-                FNAME: 'fadil'
-            }
-        });
-        message = "subscrition was successfull"
-    } catch (error) {
-        message = error.response.body.detail;
-    }
+    // try {
+    //     const response = await mailchimp.lists.addListMember('d12dde555f', {
+    //         email_address: 'fadilamanosi@gmail.com',
+    //         status: "subscribed",
+    //         merge_fields: {
+    //             FNAME: 'fadil'
+    //         }
+    //     });
+    //     message = "subscrition was successfull"
+    // } catch (error) {
+    //     message = error.response.body.detail;
+    // }
 
     res.json({
-        message: message
+        message: mailchimp
     });
 });
 
