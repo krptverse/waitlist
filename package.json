@@ -1,0 +1,19 @@
+{
+  "name": "netlify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development ./node_modules/.bin/netlify serve src",
+    "build": "NODE_ENV=production ./node_modules/.bin/netlify build src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "netlify-cli": "^13.0.0",
+    "serverless-http": "^3.1.1"
+  }
+}
