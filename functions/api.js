@@ -1,36 +1,45 @@
+
+
 const express = require("express");
 const serverless = require("serverless-http");
 const mailchimp = require('@mailchimp/mailchimp_marketing');
-
+const cors = require('cors')
+const bodyParser = require("body-parser");
 
 const app = express();
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+app.use(cors());
+//configure body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+router.post("/", async (req, res) => {
 
 
-    // mailchimp.setConfig({
-    //     apiKey: process.env.API_KEY,
-    //     server: "us8",
-    // });
+    mailchimp.setConfig({
+        apiKey: process.env.API_KEY,
+        server: "us8",
+    });
 
-    // var message = "";
+    var message = "";
+    var status = 200;
+    try {
+        await mailchimp.lists.addListMember(process.env.LIST_ID, {
+            email_address: req.body.email,
+            status: "subscribed",
+            merge_fields: {
+                FNAME: req.body.name
+            }
+        });
+        message = "subscription was successful"
+    } catch (error) {
+        message = error;
+        status = 422
+    }
 
-    // try {
-    //     await mailchimp.lists.addListMember(process.env.LIST_ID, {
-    //         email_address: 'fadilaasasasasnosi@gmail.com',
-    //         status: "subscribed",
-    //         merge_fields: {
-    //             FNAME: 'fadil'
-    //         }
-    //     });
-    //     message = "subscrition was successfull"
-    // } catch (error) {
-    //     message = error;
-    // }
-
-    res.json({
-        message: "Sdjhbuyjhk"
+    res.status(status).json({
+        message: message
     });
 });
 
