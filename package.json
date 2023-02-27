@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "publish": "npm run vite && npm run build"
+    "publish": "npm run vite && npm run build",
+    "git": "git add . && git commit -m 'update' && git push origin serverless"
   },
   "keywords": [],
   "author": "",
