@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
 
     mailchimp.setConfig({
         apiKey: process.env.API_KEY,
-        server: "us8",
+        server: "us21",
     });
 
     var message = "";
@@ -29,7 +29,8 @@ router.post("/", async (req, res) => {
             email_address: req.body.email,
             status: "subscribed",
             merge_fields: {
-                FNAME: req.body.name
+                FNAME: req.body.name,
+                LNAME: req.body.address,
             }
         });
         message = "subscription was successful"

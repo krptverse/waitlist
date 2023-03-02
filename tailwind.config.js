@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'clash': ['Clash Grotesk', 'sans-serif'],
+      'clash': ['Work Sans', 'sans-serif'],
     },
     extend: {},
   },
